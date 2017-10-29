@@ -1,7 +1,7 @@
-## This function creates a special matric object that can cache it's inverse
+## makeCacheMatrix function creates a special matric object that can cache it's inverse
 ## to use it with cachesolve function create square matrix
 
-## This fuction will create a matrix and cache it's inverse
+## makeCacheMatrix fuction will create a matrix and cache it's inverse
 
 makeCacheMatrix <- function(x = matrix()) {
   i <- NULL
@@ -10,7 +10,7 @@ makeCacheMatrix <- function(x = matrix()) {
     i <<- NULL
   }
   get <- function() x
-  setinverse <- function(inverse) i <<- solve
+  setinverse <- function(inverse) i <<- inverse
   getinverse <- function() i
   list(set = set, get = get,
        setinverse = setinverse,
@@ -19,8 +19,8 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## this function creates the invese of matrix created by makeCacheMatrix function and checks if there is 
-## inverse in cache , it gives that output else calculates inverse of the matrix .This function assumes
+## cacheSolve function creates the invese of matrix created by makeCacheMatrix function and checks if there is 
+## inverse in cache , it gives that output else calculates inverse of the matrix .cacheSolve function assumes
 ##that input is square invertible matrix
 
 cacheSolve <- function(x, ...) {
